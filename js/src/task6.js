@@ -30,15 +30,13 @@ function getAuthors(bookUrl) {
 function getResults() {
     return new Promise(function (resolve, reject) {
         getBookLinks().then(bookUrls => {
-            const resultArray = [];
             let authors = bookUrls.map(url => getAuthors(url));
-            return Promise.all(authors)
-                .then(responses => {
-                    resultArray.push(...responses);
-                    return resultArray;
-                });
+            return Promise.all(authors)    //result = array of arrays with authors
+                .then(result => [].concat.apply([], result));
         }).then(result => resolve(result));
     })
 }
 
 getResults().then(result => console.log(result))
+
+
