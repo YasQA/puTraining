@@ -7,16 +7,11 @@
 // const updateString = combine(trimSpaces, reverseString, uppercase);
 // const final = updateString('Hello Word!')
 
-function combine() {
-    let functionsArray = [];
-    for (let i = 0; i < arguments.length; i++) {
-        functionsArray.push(arguments[i]);
-    }
+function combine(...args) {
     return function(str) {
-        for (let i = 0; i < functionsArray.length; i++) {
-            str = functionsArray[i](str);
-        }
-        return str;
+        return args.reduceRight((result, current) => {
+            return current(result)
+        }, str);
     }
 }
 

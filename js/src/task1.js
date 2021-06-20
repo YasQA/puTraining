@@ -7,7 +7,7 @@ const user = {
     },
     //1
     timeoutSayHi: function() {
-        setTimeout(() => user.sayHi(), 1000);
+        setTimeout(() => this.sayHi(), 1000);
     },
     //2
     timeoutSayHi2: function() {

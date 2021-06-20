@@ -5,17 +5,10 @@
 //     которая возвращает стартовое число + степ.
 //     Функции генераторы независимы между собой, можно создавать сколько угодно генераторов.
 
-function stepper(st, stp = 1) {
-    function* generateSequence(start, step) {
-        for (let i = start + step; ; i += step) {
-            yield i;
-        }
-    }
-
-    let gen = generateSequence(st, stp);
-
+function stepper(start, step = 1) {
+    let current = start;
     return function f1() {
-        return gen.next().value;
+        return current += step;
     }
 }
 
