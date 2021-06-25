@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Film } from '../model';
 
 @Injectable()
 export class FilmService {
@@ -18,4 +19,9 @@ export class FilmService {
     });
   }
 
+  findById(id: number) {
+    return new Promise((resolve, reject) => {
+      this.findAll().then(result => result as Film[]).then(films => resolve(films[id]));
+    })
+  }
 }

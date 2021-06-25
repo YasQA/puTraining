@@ -19,18 +19,14 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.filmService.findAll().then(data => {
       this.films = data as Film[];
-      for (let film of this.films) {
-        this.starsMap.set(film.title, false);
+      for (let i = 0; i < this.films.length; i++) {
+        this.films[i].id = i;
       }
     })
   }
 
   changeStarToggle(title: string) {
-    if (this.starsMap.get(title)) {
-      this.starsMap.set(title, false);
-    } else {
-      this.starsMap.set(title, true);
-    }
+    this.starsMap.set(title, !this.starsMap.get(title));
   }
 
 }

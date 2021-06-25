@@ -1,4 +1,5 @@
 export class Film {
+  id: number;
   title: string;
   episode_id: string;
   opening_crawl: string;
