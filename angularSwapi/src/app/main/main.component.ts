@@ -23,10 +23,11 @@ export class MainComponent implements OnInit {
         this.films[i].id = i;
       }
     })
+    this.starsMap = this.filmService.starsMap;
   }
 
   changeStarToggle(title: string) {
-    this.starsMap.set(title, !this.starsMap.get(title));
+    this.filmService.changeStarToggle(title);
   }
 
 }
