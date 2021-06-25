@@ -14,8 +14,8 @@ export class FilmService {
       fetch(this.url)
         .then(response => response.json())
         .then(details => {
-            let films = details.results;
-            resolve(films);
+          let films = details.results;
+          resolve(films);
         })
     });
   }
