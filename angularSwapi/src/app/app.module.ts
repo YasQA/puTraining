@@ -3,21 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
-import { FilmService } from "./services/films.service";
+import { FilmService } from "./services/film.service";
 import { HttpClientModule } from "@angular/common/http";
 import { FilterPipe } from "./main/filter";
 import { FormsModule } from "@angular/forms";
+import { FilmDetailsComponent } from './film-details/film-details.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppHeaderComponent } from './app-header/app-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    FilterPipe
+    FilterPipe,
+    FilmDetailsComponent,
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
   ],
   providers: [FilmService],
   bootstrap: [AppComponent]

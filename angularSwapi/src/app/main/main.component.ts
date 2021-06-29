@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Film } from "../model";
-import { FilmService } from "../services/films.service";
+import { FilmService } from "../services/film.service";
 
 @Component({
   selector: 'app-main',
@@ -19,18 +19,15 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.filmService.findAll().then(data => {
       this.films = data as Film[];
-      for (let film of this.films) {
-        this.starsMap.set(film.title, false);
+      for (let i = 0; i < this.films.length; i++) {
+        this.films[i].id = i;
       }
     })
+    this.starsMap = this.filmService.starsMap;
   }
 
   changeStarToggle(title: string) {
-    if (this.starsMap.get(title)) {
-      this.starsMap.set(title, false);
-    } else {
-      this.starsMap.set(title, true);
-    }
+    this.filmService.changeStarToggle(title);
   }
 
 }
