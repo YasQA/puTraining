@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Film details full</title>
+</head>
+<body>
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-1 row-cols-xl-1 justify-content-center" >
+      <div class="col mb-5">
+        <div class="card h-100">
+          <!-- Film details-->
+          <div class="card-body p-4" *ngIf="film">
+            <div class="text-center">
+              <h5 class="fw-bolder" >{{film.title}}</h5>
+              {{film.release_date}}
+            </div>
+
+            <div>
+              <b> Episode Id: </b> {{film.episode_id}}
+            </div>
+            <div>
+              <b> Opening crawl: </b> {{film.opening_crawl}}
+            </div>
+            <div>
+              <b> Director: </b> {{film.director}}
+            </div>
+            <div>
+              <b> Producer: </b> {{film.producer}}
+            </div>
+            <div>
+              <b> Characters: </b> {{film.characters}}
+            </div>
+            <div>
+              <b> Planets: </b> {{film.planets}}
+            </div>
+            <div>
+              <b> Starships: </b> {{film.starships}}
+            </div>
+            <div>
+              <a class="btn btn-outline-dark mt-auto" (click)='goHome()'>Go Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
