@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Film } from '../model';
 import { FilmService } from '../services/film.service';
 
 @Component({
@@ -10,7 +9,6 @@ import { FilmService } from '../services/film.service';
 })
 export class FilmDetailsComponent implements OnInit {
 
-  film: Film;
   filmId: number;
 
   constructor(
@@ -22,9 +20,16 @@ export class FilmDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.filmId = params.get('id') as unknown as number;
+      this.filmService.setCurrentFilmId(this.filmId);
     });
-    this.filmService.findById(this.filmId)
-      .then(film => this.film = (film as Film));
+  }
+
+  navigateToShortDetails() {
+    this.router.navigate(['short'], { relativeTo: this.route });
+  }
+
+  navigateToFullDetails() {
+    this.router.navigate(['full'], { relativeTo: this.route });
   }
 
 }

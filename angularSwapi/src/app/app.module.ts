@@ -10,6 +10,8 @@ import { FormsModule } from "@angular/forms";
 import { FilmDetailsComponent } from './film-details/film-details.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppHeaderComponent } from './app-header/app-header.component';
+import { FilmDetailsFullComponent } from './film-details-full/film-details-full.component';
+import { FilmDetailsShortComponent } from './film-details-short/film-details-short.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AppHeaderComponent } from './app-header/app-header.component';
     MainComponent,
     FilterPipe,
     FilmDetailsComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    FilmDetailsFullComponent,
+    FilmDetailsShortComponent
   ],
   imports: [
     BrowserModule,

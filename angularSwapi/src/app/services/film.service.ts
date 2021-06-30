@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Film } from '../model';
 
 @Injectable()
 export class FilmService {
   private url = 'https://swapi.dev/api/films/';
   starsMap: Map<string, boolean> = new Map<string, boolean>();
+  currentFilmId: number;
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   findAll() {
     return new Promise((resolve, reject) => {
@@ -22,11 +22,21 @@ export class FilmService {
 
   findById(id: number) {
     return new Promise((resolve, reject) => {
-      this.findAll().then(result => result as Film[]).then(films => resolve(films[id] ));
+      this.findAll().then(result => result as Film[]).then(films => resolve(films[id]));
     })
   }
 
   changeStarToggle(title: string) {
     this.starsMap.set(title, !this.starsMap.get(title));
+  }
+
+  setCurrentFilmId(id: number) {
+    this.currentFilmId = id;
+  }
+
+  getCurrentFilmId() {
+    return new Promise((resolve,reject) => {
+      resolve(this.currentFilmId);
+    })
   }
 }

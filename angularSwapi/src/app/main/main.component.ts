@@ -14,7 +14,9 @@ export class MainComponent implements OnInit {
   starUnchecked = '../../assets/images/wstar.png'
   starsMap: Map<string, boolean> = new Map<string, boolean>();
 
-  constructor(private filmService: FilmService) { }
+  constructor(
+    private filmService: FilmService,
+  ) { }
 
   ngOnInit(): void {
     this.filmService.findAll().then(data => {
@@ -29,5 +31,4 @@ export class MainComponent implements OnInit {
   changeStarToggle(title: string) {
     this.filmService.changeStarToggle(title);
   }
-
 }

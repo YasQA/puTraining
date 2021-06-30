@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Film details short</title>
+</head>
+<body>
+<!-- Section-->
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-1 row-cols-xl-1 justify-content-center" >
+      <div class="col mb-5">
+        <div class="card h-100">
+          <!-- Film details-->
+          <div class="card-body p-4" *ngIf="film">
+            <div class="text-center">
+              <h5 class="fw-bolder" >{{film.title}}</h5>
+            </div>
+            <div>
+              <b> Opening crawl: </b> {{film.opening_crawl}}
+            </div>
+            <div>
+              <a class="btn btn-outline-dark mt-auto" (click)='goHome()'>Go Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
