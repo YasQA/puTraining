@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { FilmDetailsFullComponent } from './film-details-full/film-details-full.component';
 import { FilmDetailsShortComponent } from './film-details-short/film-details-short.component';
+import { ToggleTextDirective } from './directives/toggle-text.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FilmDetailsShortComponent } from './film-details-short/film-details-sho
     FilmDetailsComponent,
     AppHeaderComponent,
     FilmDetailsFullComponent,
-    FilmDetailsShortComponent
+    FilmDetailsShortComponent,
+    ToggleTextDirective
   ],
   imports: [
     BrowserModule,
@@ -33,4 +35,3 @@ import { FilmDetailsShortComponent } from './film-details-short/film-details-sho
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
